@@ -4,11 +4,52 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Base Template</title>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Vigenére Encryption Simulation</title>
   </head>
   <body>
+    <h1>Vigenére Encryption Simulation</h1>
 
+    <main>
+      <div id="control-panel">
+        <div class="input-group">
+          <label for="plaintext">Clear text:</label>
+          <input type="text" id="plaintext" placeholder="Enter the plain text"/>
+        </div>
+    
+        <div class="input-group">
+          <label for="key">Key:</label>
+          <input type="text" id="key" placeholder="Enter the key (text)" />
+        </div>
 
+        <div class="input-group">
+          <label for="speed">Speed:</label>
+          <input id="speed" type="range" min="1" max="500" value="200">
+        </div>
+
+        <div class="input-group checkbox-group">
+          <input type="checkbox" id="animationCheckbox" checked />
+          <label for="animationCheckbox">Simultaneous Animation</label>
+        </div>
+    
+        <button id="encrypt-button" onclick="encrypt()">Encrypt</button>
+
+        <div id="output-section">
+          <h3>Cipher text:</h3>
+          <div id="output"></div>
+        </div>
+      </div>
+  
+      <div id="table-container">
+        <h2 id="table-heading">Vigenère Table</h2>
+        <div id="vigenereTableContainer"></div>
+      </div>
+      
+    </main>
+
+    <footer>
+      <a href="https://www.johannes-dejori.com">© Johannes Dejori 2024</a>
+    </footer>
 
     <script type="module" src="./js/main.js"></script>
   </body>

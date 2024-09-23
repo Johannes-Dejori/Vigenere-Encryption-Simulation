@@ -1,1 +1,175 @@
 @import "preset";
+
+/* Basic Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 100px;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#control-panel {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  flex: 1;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-group input[type="text"], 
+.input-group input[type="range"] {
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group label {
+  margin-left: 5px;
+}
+
+#encrypt-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: center;
+}
+
+#encrypt-button:hover {
+  background-color: #218838;
+}
+
+#output-section {
+  margin-top: 20px;
+}
+
+#output {
+  padding: 10px;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  min-height: 40px;
+}
+
+#table-container {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  flex: 2;
+}
+
+#table-heading {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+#vigenereTableContainer {
+  text-align: center;
+  margin: 20px 0;
+  overflow-x: hidden; /* No scroll */
+}
+
+/* Table Styles */
+table {
+  border-collapse: collapse;
+  width: 100%; /* Ensure the table takes full width */
+}
+
+th, td {
+  padding: 5px;
+  border: 1px solid #ddd;
+  text-align: center;
+  min-width: 20px; /* Minimum width for cells */
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+}
+
+.header {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+.highlight {
+  background-color: #d1ecf1;
+  transition: background-color 0.3s ease;
+}
+
+.selected {
+  background-color: #ffc107;
+}
+
+footer {
+  margin-top: auto;
+  padding: 10px;
+  text-align: center;
+  color: #6c757d;
+  background-color: #f8f9fa;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #control-panel, #table-container {
+    max-width: 100%;
+  }
+}
