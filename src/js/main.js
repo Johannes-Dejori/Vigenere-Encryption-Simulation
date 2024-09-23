@@ -16,7 +16,7 @@ function generateVigenereTable() {
   for (let i = 0; i < alphabet.length; i++) {
     const headerCell = document.createElement("td");
     headerCell.textContent = alphabet[i];
-    headerCell.classList.add("header"); // Add a CSS class for styling
+    headerCell.classList.add("header");
     headerRow.appendChild(headerCell);
   }
   table.appendChild(headerRow);
@@ -28,7 +28,7 @@ function generateVigenereTable() {
     // Add the left orientation column cell (plaintext)
     const leftHeaderCell = document.createElement("td");
     leftHeaderCell.textContent = alphabet[i];
-    leftHeaderCell.classList.add("header"); // Add a CSS class for styling
+    leftHeaderCell.classList.add("header");
     row.appendChild(leftHeaderCell);
 
     for (let j = 0; j < alphabet.length; j++) {
@@ -90,7 +90,6 @@ function encrypt() {
         !cell.classList.contains("header")
     );
     animationSteps.push({ cell, rowIndex, colIndex, char: cell.textContent });
-
     ciphertext += cell.textContent;
   }
 
@@ -118,7 +117,6 @@ function encrypt() {
 
       // Animate from header cells to the target cell
       animateRowAndCol(rowIndex, colIndex, cell).then(() => {
-        // After the current animation finishes, increment the step index and start the next animation
         document.getElementById("output").textContent += char;
         stepIndex++;
         animateStep();
@@ -133,7 +131,6 @@ function encrypt() {
 // Set the default animation mode to simultaneous
 let isSimultaneous = true;
 
-// Get the checkbox element
 const animationCheckbox = document.getElementById('animationCheckbox');
 
 // Update isSimultaneous whenever the checkbox changes
@@ -183,11 +180,9 @@ function animateRowAndCol(rowIndex, colIndex, targetCell) {
       }
     }
 
-    // Variables to track whether row and column animations are finished
     let isRowFinished = false;
     let isColumnFinished = false;
 
-    // Function to be called when row animation completes
     function rowAnimationFinished() {
       isRowFinished = true;
       if (isRowFinished && isColumnFinished) {
@@ -195,7 +190,6 @@ function animateRowAndCol(rowIndex, colIndex, targetCell) {
       }
     }
 
-    // Function to be called when column animation completes
     function columnAnimationFinished() {
       isColumnFinished = true;
       if (isRowFinished && isColumnFinished) {
@@ -211,7 +205,6 @@ function animateRowAndCol(rowIndex, colIndex, targetCell) {
         resolve();
       }, finalSpeed);
     }
-
 
     // Start the animations based on the mode
     if (isSimultaneous) {
@@ -231,12 +224,11 @@ function animateRowAndCol(rowIndex, colIndex, targetCell) {
               currentRowIndex++;
               setTimeout(animateRowLinear, currentSpeed); // Recursively call to continue row animation
           } else {
-              rowAnimationFinished(); // Row animation is complete, now start column
-              animateColumn(); // Start column animation only when row is finished
+              rowAnimationFinished();
+              animateColumn();
           }
       };
 
-      // Start the row animation first
       animateRowLinear();
   }
   });
@@ -264,6 +256,4 @@ function clearHighlights(rowIndex, colIndex) {
 }
 
 window.encrypt = encrypt;
-
-// Initialize the table when the page loads
 window.onload = generateVigenereTable;
